@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "7ab9d595-a520-4233-aa41-a540f6fa1741",
+		"name": "[Local] Playground",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "happy request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"firstName\": \"Varun\",\n\"lastName\": \"Singhal\",\n\"userName\" : \"varunsinghal\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/shipStuff/create_action",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shipStuff",
+						"create_action"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sad Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"firstName\": \"Varun\",\n\"lastName\": \"Singhal\",\n\"userName\" : \"bad_user_name\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/shipStuff/create_action",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shipStuff",
+						"create_action"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

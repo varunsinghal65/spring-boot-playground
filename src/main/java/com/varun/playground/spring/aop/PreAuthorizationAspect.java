@@ -1,5 +1,6 @@
 package com.varun.playground.spring.aop;
 
+import com.varun.playground.spring.aop.exceptions.UserUnAuthorizedException;
 import com.varun.playground.spring.aop.services.AuthorizationService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -42,15 +43,15 @@ public class PreAuthorizationAspect {
         System.out.println("Parsed user name is: " + parsedUserName);
         System.out.println("Parsed user action is: " + parsedUserAction);
         if (!authorizationService.isAuthorized(parsedUserName, parsedUserAction)) {
-            throw new RuntimeException("Unauthorized");
+            throw new UserUnAuthorizedException();
         }
     }
 
     private static EvaluationContext getSpelExprEvaluationContext(Object[] methodArgsValues, String[] methodArgsNames) {
         EvaluationContext evaluationContext = new StandardEvaluationContext();
-        IntStream.range(0, methodArgsNames.length).forEach(idx -> {
-            evaluationContext.setVariable(methodArgsNames[idx], methodArgsValues[idx]);
-        });
+        IntStream.range(0, methodArgsNames.length).forEach(idx ->
+                evaluationContext.setVariable(methodArgsNames[idx], methodArgsValues[idx])
+        );
         return evaluationContext;
     }
 }

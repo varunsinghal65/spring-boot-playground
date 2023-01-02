@@ -8,7 +8,10 @@ public class AuthorizationService {
 
     public boolean isAuthorized(final String userName, final String userAction) {
         if (StringUtils.isBlank(userName) || StringUtils.isBlank(userAction)) return false;
-        if (userName.equals("varunsinghal")) return true;
-        return false;
+        if (userName.equals("varunsinghal")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
